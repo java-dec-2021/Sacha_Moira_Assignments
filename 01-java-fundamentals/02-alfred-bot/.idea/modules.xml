@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/02-alfred-bot.iml" filepath="$PROJECT_DIR$/.idea/02-alfred-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AlfredBot/AlfredBot.iml" filepath="$PROJECT_DIR$/AlfredBot/AlfredBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AlfredBotTest.java/AlfredBotTest.java.iml" filepath="$PROJECT_DIR$/AlfredBotTest.java/AlfredBotTest.java.iml" />
+    </modules>
+  </component>
+</project>
