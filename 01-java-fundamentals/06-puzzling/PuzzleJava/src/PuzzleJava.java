@@ -32,21 +32,9 @@ public class PuzzleJava {
         return letters[i];
     }
     public String generatePassword(){
-        //MANUALLY GENERATED ALPHABET ARRAY:
-//        char[] letters = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
         char[] charArr = new char[8];
-        Random ranChar = new Random();
-        //LOOP GENERATED ALPHABET ARRAY:
-        char[] letters = new char[26];
-        char c='A';
-        for(byte j=0;j<letters.length;j++){
-            letters[j]=c;
-            c++;
-        }
-        for(byte i = 0;i<charArr.length;i++){
-            int j = ranChar.nextInt(25);
-            charArr[i]= letters[j];
-        }
+
+        for(byte i = 0;i<charArr.length;i++) charArr[i]= getRandomLetter();
         return new String(charArr);
     }
     public String generatePassword2(){
