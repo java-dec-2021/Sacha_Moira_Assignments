@@ -23,18 +23,19 @@ public class PuzzleJava {
         Random ranChar = new Random();
         int i = ranChar.nextInt(25);
         //LOOP GENERATED ALPHABET ARRAY:
-        char[] letters = new char[26];
-        char c='A';
-        for(byte j=0;j<letters.length;j++){
+        char[] letters = new char[144697];
+        char c='0';
+
+        for(int j=0;j<144697;j++){
                 letters[j]=c;
                 c++;
         }
         return letters[i];
     }
     public String generatePassword(){
-        char[] charArr = new char[8];
+        char[] charArr = new char[50];
 
-        for(byte i = 0;i<charArr.length;i++) charArr[i]= getRandomLetter();
+        for(int i = 0;i<charArr.length;i++) charArr[i]= getRandomLetter();
         return new String(charArr);
     }
     public String generatePassword2(){
