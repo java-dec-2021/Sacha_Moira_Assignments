@@ -11,6 +11,9 @@ public abstract class Mammal {
       System.out.printf("%s goes to sleep.", this.name);
       this.regainEnergy("sleep");
     }
+    public void displayEnergy(){
+        System.out.printf("%s's current Energy : %d\n", this.name, this.energy);
+    }
     public abstract void eat();
     public abstract void expendEnergy(String action);
     public abstract void regainEnergy(String action);

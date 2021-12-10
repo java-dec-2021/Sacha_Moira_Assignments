@@ -27,7 +27,4 @@ public class Gorilla extends Mammal{
         System.out.printf("%s climbs a tree!\n", this.name);
         this.expendEnergy("climb");
     }
-    public void displayEnergy(){
-        System.out.printf("%s's current Energy : %d\n", this.name, this.energy);
-    }
 }
