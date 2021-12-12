@@ -7,7 +7,6 @@ public class BankAccountTest {
         BankAccount evelyn = new BankAccount(8000.00, 3000.00, "Evelyn");
         System.out.printf("%s Saving's account balance is: %,.2f\n",sacha.getName(), sacha.getSavingsBalance());
         System.out.printf("Accnt #: %d Saving's account balance is: %,.2f\n",moira.getAccntNumber(), moira.getSavingsBalance());
-
 //        createAccount();
     }
     public static void createAccount(){

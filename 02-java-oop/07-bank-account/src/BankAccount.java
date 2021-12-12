@@ -75,16 +75,14 @@ public class BankAccount {
         this.name = name;
     }
     public Double getCheckingBalance() {
-        return checkingBalance;
+        return this.checkingBalance;
     }
     public Double getSavingsBalance() {
-        return savingsBalance;
+        return this.savingsBalance;
     }
-
     public int getAccntNumber() {
-        return accntNumber;
+        return this.accntNumber;
     }
-
     public String getName(){
         return this.name;
     }
