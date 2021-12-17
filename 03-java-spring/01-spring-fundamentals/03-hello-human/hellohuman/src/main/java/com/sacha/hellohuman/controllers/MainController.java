@@ -18,6 +18,6 @@ public class MainController {
 		firstName.addAttribute("name", name);
 		lastName.addAttribute("lName", lName);
 		toLoop.addAttribute("num", num);
-		return "index.jsp";
+		return "whatever.jsp";
 	}
 }

@@ -17,5 +17,3 @@
 <c:forEach begin="1" end="${num}">
 <h1>Welcome <c:out value="${name}" /> <c:out value="${lName}"/>!!!</h1>
 </c:forEach>
-</body>
-</html>

@@ -8,11 +8,11 @@
 		<version>2.6.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sacha.hellohuman</groupId>
-	<artifactId>hellohuman</artifactId>
+	<groupId>com.sacha.displaydate</groupId>
+	<artifactId>displaydate1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hellohuman</name>
-	<description>Hello Human core assignment</description>
+	<name>displaydate1</name>
+	<description>Display Date core assignment</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -37,7 +37,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
- 		<dependency>
+		<dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
