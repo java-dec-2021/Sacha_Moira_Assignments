@@ -19,13 +19,9 @@
 				<div class="wrapper">
 					<label for="location">Dojo Location:</label>
 					<select name="location">
-						<option value="Boston">Boston</option>
-						<option value="Chicago">Chicago</option>
-						<option value="San Jose">San Jose</option>
-						<option value="Seattle">Seattle</option>
-						<option value="Portland">Portland</option>
-						<option value="New York">New York</option>
-						<option value="OLnline">Online</option>
+						<c:forEach var="location" items="${locations}">
+							<option value="${location}"><c:out value="${location}"></c:out></option>
+						</c:forEach>
 					</select>
 				</div>
 				<div class="wrapper">

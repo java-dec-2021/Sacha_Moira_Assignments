@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" href="css/style.css" />
-		<title>Dojo Survey - Welcome</title>
+		<title>Dojo Survey - Java</title>
 	</head>
 		<body>
 			<div class="container">
@@ -30,7 +30,7 @@
 						<h3>Comment: </h3>
 						<h4><c:out value="${comment}"/></h4>
 					</div>
-					<div class="wrapper">
+					<div class="wrapper back">
 						<a class="btn" href="/">Back</a>
 					</div>
 				</div>

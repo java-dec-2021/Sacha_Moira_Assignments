@@ -14,7 +14,9 @@ public class MainController {
 	@GetMapping("/")
 	public String index(Model model) {
 		String[] languages= {"Java","Python","JavaScript", "PHP", "Ruby", "C#"};
+		String[] locations= {"Boston","Chicago","San Jose", "Seattle", "Portland", "New York", "Online"};
 		model.addAttribute("languages",languages);
+		model.addAttribute("locations",locations);
 		return "index.jsp";
 	}
 	
@@ -32,7 +34,10 @@ public class MainController {
 		studentModel.addAttribute("comment",comment);
 		
 		mySession.setAttribute("firstName", fName);
-		System.out.println(studentModel.getAttribute("language"));
+		mySession.setAttribute("location",location);
+		mySession.setAttribute("language",language);
+		mySession.setAttribute("comment",comment);
+		
 		if(studentModel.getAttribute("language").equals("Java")) {
 			return "java.jsp";
 		}else {

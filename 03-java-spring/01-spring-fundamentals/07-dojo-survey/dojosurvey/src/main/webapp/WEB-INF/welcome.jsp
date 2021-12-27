@@ -29,7 +29,7 @@
 						<h3>Comment: </h3>
 						<h4><c:out value="${comment}"/></h4>
 					</div>
-					<div class="wrapper">
+					<div class="wrapper, back">
 						<a class="btn" href="/">Back</a>
 					</div>
 				</div>
