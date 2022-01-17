@@ -18,7 +18,11 @@
 		    <p>
 		        <form:label path="languageName">Language</form:label>
 		        <form:errors path="languageName"/>
+<<<<<<< HEAD
 		        <form:input path="languageName" value="${language.languageName }" />
+=======
+		        <form:input path="languageName" />
+>>>>>>> 1c3a708719f795d7b5f219980e88f9026bd15779
 		    </p>
 		    <p>
 		        <form:label path="creatorName">Creator</form:label>

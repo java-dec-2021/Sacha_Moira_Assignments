@@ -63,11 +63,17 @@ public class MainControler {
 			@Valid 
 			@ModelAttribute("updateLanguage") Languages updateLanguage, 
 			BindingResult result,
+<<<<<<< HEAD
 			@PathVariable("id") Long id,
 			Model model
 			) {
 		if(result.hasErrors()) {
 			model.addAttribute("language", languageService.getOneLanguage(id).orElseThrow(RuntimeException::new));
+=======
+			@PathVariable("id") Long id
+			) {
+		if(result.hasErrors()) {
+>>>>>>> 1c3a708719f795d7b5f219980e88f9026bd15779
 			return "edit.jsp";
 		} 
 		else {
