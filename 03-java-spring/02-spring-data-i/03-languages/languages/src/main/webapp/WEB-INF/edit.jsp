@@ -18,7 +18,7 @@
 		    <p>
 		        <form:label path="languageName">Language</form:label>
 		        <form:errors path="languageName"/>
-		        <form:input path="languageName" />
+		        <form:input path="languageName" value="${language.languageName }" />
 		    </p>
 		    <p>
 		        <form:label path="creatorName">Creator</form:label>
