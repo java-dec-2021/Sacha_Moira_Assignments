@@ -1,4 +1,4 @@
-package com.sacha.productsAndCategories.controllers;
+package com.sacha.dojoOverflow.controllers;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -49,13 +49,13 @@ public class MainController {
 		return "productDetails.jsp";
 	}
 	@GetMapping("/product/create")
-	public String addProduct(@ModelAttribute("newProduct") Products newProduct) {
+	public String addProduct(@ModelAttribute("newProduct") Questions newProduct) {
 		return "addProduct.jsp";
 	}
 	@PostMapping("/product/create")
 	public String create(
 			@Valid 
-			@ModelAttribute("newProduct") Products newProduct, 
+			@ModelAttribute("newProduct") Questions newProduct, 
 			BindingResult result
 			) {
 		
@@ -78,7 +78,7 @@ public class MainController {
 	@PutMapping("product/edit/{id}")
 	public String update(
 			@Valid 
-			@ModelAttribute("updateProduct") Products updateProduct, 
+			@ModelAttribute("updateProduct") Questions updateProduct, 
 			BindingResult result,
 			@PathVariable("id") Long id,
 			Model model
@@ -107,8 +107,8 @@ public class MainController {
 			) {
 		
 		Long product_id = (Long)mySession.getAttribute("prod_id");
-		Products Product = pService.getOneProduct(product_id);
-		Categories Category = cService.getOneCategory(category_id);
+		Questions Product = pService.getOneProduct(product_id);
+		Answers Category = cService.getOneCategory(category_id);
 		pService.addCategory(Product, Category);
 		
 		model.addAttribute("product", pService.getOneProduct(product_id));

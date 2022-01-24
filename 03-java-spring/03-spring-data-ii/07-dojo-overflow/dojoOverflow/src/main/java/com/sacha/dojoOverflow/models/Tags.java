@@ -1,4 +1,4 @@
-package com.sacha.productsAndCategories.models;
+package com.sacha.dojoOverflow.models;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="products")
 
-public class Products {
+public class Tags {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,7 +44,7 @@ public class Products {
 		        joinColumns = @JoinColumn(name = "product_id"), 
 		        inverseJoinColumns = @JoinColumn(name = "category_id")
 		    )
-    private List<Categories> categories;
+    private List<Answers> answers;
 	
 	public Long getId() {
 		return id;
@@ -70,10 +70,10 @@ public class Products {
 	public void setProductPrice(BigDecimal productPrice) {
 		this.productPrice = productPrice;
 	}
-	public List<Categories> getCategories() {
-		return categories;
+	public List<Answers> getCategories() {
+		return answers;
 	}
-	public void setCategories(List<Categories> categories) {
-		this.categories = categories;
+	public void setCategories(List<Answers> answers) {
+		this.answers = answers;
 	}
 }

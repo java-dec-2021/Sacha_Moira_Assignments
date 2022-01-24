@@ -59,14 +59,18 @@ public class NinjaController {
 	public String create(
 			@Valid 
 			@ModelAttribute("newNinja") Ninjas newNinja, 
-			BindingResult result
+			BindingResult result,
+			Model model
 			) {
+		model.addAttribute("ninjas", nService.getAllNinjas());
+		model.addAttribute("allDojos", dService.getAllDojos());
+		
 		if(result.hasErrors()) {
-			return "index.jsp";
+			return "addNinja.jsp";
 		} 
 		else { 
 			this.nService.create(newNinja);
-			return "redirect:/";
+			return "redirect:/ninjas";
 		}
 	}
 	@PutMapping("ninja/edit/{id}")
