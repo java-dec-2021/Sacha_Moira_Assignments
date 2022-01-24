@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sacha.productsAndCategories.models.Categories;
+import com.sacha.dojoOverflow.models.Answers;
 
 @Repository
-public interface CategoryRepository extends CrudRepository<Answers, Long>{
+public interface AnswersRepository extends CrudRepository<Answers, Long>{
 	List<Answers> findAll();
 }

@@ -41,10 +41,10 @@ public class Answers {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public Questions getProducts() {
+	public Questions getQuestion() {
 		return question;
 	}
-	public void setProducts(Questions question) {
+	public void setQuestion(Questions question) {
 		this.question = question;
 	}
 }

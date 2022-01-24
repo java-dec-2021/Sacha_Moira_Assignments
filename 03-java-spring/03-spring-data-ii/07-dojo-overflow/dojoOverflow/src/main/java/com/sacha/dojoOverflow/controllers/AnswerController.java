@@ -14,27 +14,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sacha.productsAndCategories.models.Categories;
-import com.sacha.productsAndCategories.models.Products;
-import com.sacha.productsAndCategories.services.CategoryService;
-import com.sacha.productsAndCategories.services.ProductService;
+import com.sacha.dojoOverflow.models.Answers;
+import com.sacha.dojoOverflow.models.Questions;
+import com.sacha.dojoOverflow.services.AnswersService;
+import com.sacha.dojoOverflow.services.QuestionsService;
 
 @Controller
-public class CategoryController {
+public class AnswerController {
 
 	@Autowired
-	private CategoryService categoryService;
+	private AnswersService aService;
 	@Autowired
-	private ProductService productService;
+	private QuestionsService qService;
 
 	@GetMapping("/categories")
 	public String addCategory(
 			@ModelAttribute("newCategory") Answers newCategory, 
 			Model model
 			) {
-		model.addAttribute("categories", categoryService.getAllCategories());
+		model.addAttribute("categories", aService.getAllAnswers());
 		return "addCategory.jsp";
 	}
 	@GetMapping("/category/details/{id}")
@@ -46,8 +46,8 @@ public class CategoryController {
 		
 		mySession.setAttribute("cat_id", id);
 		
-		List<Questions> allProducts = productService.getAllProducts();
-		model.addAttribute("category", categoryService.getOneCategory(id));
+		List<Questions> allProducts = qService.getAllQuestions();
+		model.addAttribute("category", aService.getOneAnswer(id));
 		model.addAttribute("products", allProducts);
 		return "categoryDetails.jsp";
 	}
@@ -62,7 +62,7 @@ public class CategoryController {
 			return "index.jsp";
 		} 
 		else { 
-			this.categoryService.create(newCategory);
+			this.aService.create(newCategory);
 			return "redirect:/";
 		}
 	}
@@ -91,30 +91,12 @@ public class CategoryController {
 //			return "redirect:/";
 //		}
 //	}
-//	Delete a Category
+//	Delete an Answer
 	@DeleteMapping("/category/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
-		categoryService.deleteCategory(id);
+		aService.deleteAnswer(id);
         return "redirect:/";
     }
-
-	@GetMapping("/category/addProduct")
-	public String addCategory(
-			@RequestParam("prodId") Long product_id,
-			HttpSession mySession,
-			Model model
-			) {
-		
-		Long category_id = (Long)mySession.getAttribute("cat_id");
-		Answers Category= categoryService.getOneCategory(category_id);
-		Questions Product = productService.getOneProduct(product_id);
-		categoryService.addProduct(Category, Product);
-		
-		model.addAttribute("category", categoryService.getOneCategory(category_id));
-		model.addAttribute("products", productService.getAllProducts());
-		
-		return "categoryDetails.jsp";
-	}
 }
 
 

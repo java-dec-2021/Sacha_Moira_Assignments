@@ -11,15 +11,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import com.sun.istack.NotNull;
-
 @Entity
 @Table(name="dojos")
 public class Dojos {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
     private Long id;
 	
 	@Size(min = 2, max = 20, message="Language should be between 2-200")

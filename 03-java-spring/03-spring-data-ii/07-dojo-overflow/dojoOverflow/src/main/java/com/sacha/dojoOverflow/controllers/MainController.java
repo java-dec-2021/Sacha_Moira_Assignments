@@ -15,105 +15,107 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.sacha.productsAndCategories.models.Categories;
-import com.sacha.productsAndCategories.models.Products;
-import com.sacha.productsAndCategories.services.CategoryService;
-import com.sacha.productsAndCategories.services.ProductService;
+import com.sacha.dojoOverflow.models.Questions;
+import com.sacha.dojoOverflow.models.Tags;
+import com.sacha.dojoOverflow.services.AnswersService;
+import com.sacha.dojoOverflow.services.QuestionsService;
+import com.sacha.dojoOverflow.services.TagsService;
 
 @Controller
 public class MainController {
 
 	@Autowired
-	private CategoryService cService;
-	
+	private AnswersService aService;
 	@Autowired
-	private ProductService pService;
+	private QuestionsService qService;
+	@Autowired
+	private TagsService tService;
 
 	@GetMapping("/")
 	public String index(
 			Model model
 			) {
-		model.addAttribute("products", pService.getAllProducts());
-		model.addAttribute("allCategories", cService.getAllCategories());
+		model.addAttribute("questions", qService.getAllQuestions());
+		model.addAttribute("allCategories", aService.getAllAnswers());
 		return "index.jsp";
 	}
-	@GetMapping("/product/details/{id}")
+	@GetMapping("/question/details/{id}")
 	public String details(
 			@PathVariable("id") Long id, 
 			Model model,
 			HttpSession mySession
 			) {
-		model.addAttribute("product", pService.getOneProduct(id));
-		model.addAttribute("allCategories", cService.getAllCategories());
-		mySession.setAttribute("prod_id", id);
-		return "productDetails.jsp";
+		model.addAttribute("question", qService.getOneQuestion(id));
+		model.addAttribute("allCategories", aService.getAllAnswers());
+		mySession.setAttribute("quest_id", id);
+		return "questionDetails.jsp";
 	}
-	@GetMapping("/product/create")
-	public String addProduct(@ModelAttribute("newProduct") Questions newProduct) {
-		return "addProduct.jsp";
+	@GetMapping("/question/create")
+	public String addQuestion(@ModelAttribute("newQuestion") Questions newQuestion) {
+		return "addQuestion.jsp";
 	}
-	@PostMapping("/product/create")
+	@PostMapping("/question/create")
 	public String create(
 			@Valid 
-			@ModelAttribute("newProduct") Questions newProduct, 
+			@ModelAttribute("newQuestion") Questions newQuestion, 
 			BindingResult result
 			) {
 		
 		if(result.hasErrors()) {
-			return "addProduct.jsp";
+			return "addQuestion.jsp";
 		} 
 		else { 
-			this.pService.create(newProduct);
-			return "redirect:/product/details/" + newProduct.getId();
+			this.qService.create(newQuestion);
+			return "redirect:/question/details/" + newQuestion.getId();
 		}
 	}
-		@GetMapping("/product/edit/{id}")
+		@GetMapping("/question/edit/{id}")
 	public String update(
 			@PathVariable("id") Long id,
 			Model model
 			) {
-		model.addAttribute("updateProduct", pService.getOneProduct(id));
-		return "editProduct.jsp";
+		model.addAttribute("updateQuestion", qService.getOneQuestion(id));
+		return "editQuestion.jsp";
 	}
-	@PutMapping("product/edit/{id}")
+	@PutMapping("question/edit/{id}")
 	public String update(
 			@Valid 
-			@ModelAttribute("updateProduct") Questions updateProduct, 
+			@ModelAttribute("updateQuestion") Questions updateQuestion, 
 			BindingResult result,
 			@PathVariable("id") Long id,
 			Model model
 			) {
 		if(result.hasErrors()) {
-			model.addAttribute("product", pService.getOneProduct(id));
+			model.addAttribute("question", qService.getOneQuestion(id));
 			return "edit.jsp";
 		} 
 		else {
-			this.pService.update(updateProduct, id);
+			this.qService.update(updateQuestion, id);
 			return "redirect:/";
 		}
 	}
 //	Delete a Product
-	@DeleteMapping("/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable("id") Long id) {
-		this.pService.deleteProduct(id);
+	@DeleteMapping("/deleteQuestion/{id}")
+    public String deleteQuestion(@PathVariable("id") Long id) {
+		this.qService.deleteQuestion(id);
         return "redirect:/";
     }
 	
-	@GetMapping("/product/addCategory")
+	@GetMapping("/question/addCategory")
 	public String addCategory(
 			@RequestParam("catId") Long category_id,
 			HttpSession mySession,
 			Model model
 			) {
 		
-		Long product_id = (Long)mySession.getAttribute("prod_id");
-		Questions Product = pService.getOneProduct(product_id);
-		Answers Category = cService.getOneCategory(category_id);
-		pService.addCategory(Product, Category);
+		Long question_id = (Long)mySession.getAttribute("quest_id");
+		Questions Question = qService.getOneQuestion(question_id);
+		Tags Tag = tService.getOneTag(category_id);
+		qService.addTag(Question, Tag);
 		
-		model.addAttribute("product", pService.getOneProduct(product_id));
-		model.addAttribute("allCategories", cService.getAllCategories());
+		model.addAttribute("question", qService.getOneQuestion(question_id));
+		model.addAttribute("allCategories", tService.getAllTags());
 		
-		return "productDetails.jsp";
+		return "questionDetails.jsp";
 	}
 }
