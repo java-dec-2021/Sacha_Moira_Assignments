@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-java-fundamentals.iml" filepath="$PROJECT_DIR$/01-java-fundamentals.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-alfred-bot/02-alfred-bot.iml" filepath="$PROJECT_DIR$/02-alfred-bot/02-alfred-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-basics/05-basics.iml" filepath="$PROJECT_DIR$/05-basics/05-basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06-puzzling/06-puzzling.iml" filepath="$PROJECT_DIR$/06-puzzling/06-puzzling.iml" />
+    </modules>
+  </component>
+</project>
